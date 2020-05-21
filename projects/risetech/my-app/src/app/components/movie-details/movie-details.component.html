@@ -1,0 +1,36 @@
+<!-- <h1 style="text-align: center; font-weight: bold; color: black;">Movie Detaiks</h1> -->
+<!-- <div *ngIf="SearchResults"> -->
+<!-- <h4> {{SearchResults.Actors}} </h4> -->
+<!-- </div> -->
+<div *ngIf="SearchResults">
+    <div class="HeaderTop ">Moive Details</div>
+    <div style="display: flex; flex-direction: row;" >
+        <div class="SearchResults">
+            <div>
+                <div style="flex-direction: row; display: flex; padding-left: 5px;">
+                    <h2> Move Name : </h2>
+                    <h2 style="padding-left: 10px;"> {{SearchResults.Title}}</h2>
+                </div>
+                <div style="flex-direction: row; display: flex; padding-left: 5px;">
+                    <h2> Actors : </h2>
+                    <h2 style="padding-left: 10px;"> {{SearchResults.Actors}}</h2>
+                </div>
+                <div style="flex-direction: row; display: flex; padding-left: 5px;">
+                    <h2> Plot : </h2>
+                    <h2 style="padding-left: 10px;"> {{SearchResults.Plot}}</h2>
+                </div>
+                <div style="flex-direction: row; display: flex; padding-left: 5px;">
+                    <h2> Genre : </h2>
+                    <h2 style="padding-left: 10px;"> {{SearchResults.Genre}}</h2>
+                </div>
+                <div style="flex-direction: row; display: flex; padding-left: 5px">
+                    <h2> Year :</h2>
+                    <h2 style="padding-left: 10px;"> {{SearchResults.Year}}</h2>
+                </div>
+            </div>
+        </div>
+        <div style="margin-left: 5px;">
+            <img src={{SearchResults.Poster}} title="Movie" />
+        </div>
+    </div>
+</div>

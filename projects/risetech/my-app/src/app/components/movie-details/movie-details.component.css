@@ -1,0 +1,36 @@
+.HeaderTop{
+    height: 100ox;
+    width: 100%;
+    background-color: lightblue;
+    font-weight: bold;
+    font-size: 28px;
+    padding-left: 5px;
+    text-align: center;
+    }
+    .moviesTitle{
+        height: 30px;
+        width: 100%;
+        background-color: lightcyan;
+        font-size: 22px;
+        padding-left: 5px;
+        padding-top: 5px;
+    }
+    .moviesTitle :hover {
+        background-color: gray;
+        opacity: 0.5;
+    }
+    .SearchMovie{
+        height: 40px;
+        padding-left: 10px;
+    
+    }
+    .searchBtn{
+        height: 40px;
+        width: 90px;
+        margin-left: 20px;
+    }
+    .SearchResults{
+        /* height: 40px; */
+        background-color: lightcyan;
+        margin-bottom: 20px;
+    }

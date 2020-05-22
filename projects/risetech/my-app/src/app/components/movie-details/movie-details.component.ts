@@ -9,17 +9,18 @@ import {ActivatedRoute} from '@angular/router'
 })
 export class MovieDetailsComponent implements OnInit {
   SearchResults;
+  selectedMovie =history.state.data;
   // @Input() omData: any[];
   constructor(private todosComponent: TodosComponent, private omdbService: CallomdbService,private route:ActivatedRoute) {
 
   }
 
   ngOnInit(): void {
-    // console.log("onData in details component", this.omData);
-    console.log("this.todosComponent.SearchResults in details component", this.todosComponent.SearchResults);
+    console.log("this.todosComponent.SearchResults in details component 1:", this.todosComponent.SearchResults);
+    console.log(" History  : ", history);
     this.omdbService.searchMovieByName().subscribe(data => {
       this.SearchResults = data;
-      console.log("search results ", this.SearchResults ,data)
+      // console.log("search results ", this.SearchResults ,data)
     });
   }
 

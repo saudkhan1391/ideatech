@@ -1,10 +1,31 @@
-<!-- <app-todo-item *ngFor="let todo of todos" [todo]="todo" > -->
-<!-- </app-todo-item> -->
 <div style="padding: 30px;">
     <input class="SearchMovie" placeholder="Movie Name" [(ngModel)]="MovieInput" />
     <button (click)="SearchClicked()" class="searchBtn">Search</button>
 </div>
-<div *ngIf="SearchResults">
+<p-table>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>List Of Movies</th>
+        </tr>
+    </ng-template>
+</p-table>
+<div>
+    <!-- <h1 *ngFor="let result of results">Results: {{result.Title}}</h1> -->
+</div>
+<div *ngIf="results">
+    <div (click)="ProvideSelectedResult(result)" *ngFor="let result of results" routerLink='/MovieDetailsComponent'
+        [state]="{ data: result}">
+        <p-table>
+            <ng-template pTemplate="caption">
+                {{result.Title}}
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+<!-- <app-todo-item *ngFor="let todo of todos" [todo]="todo" > -->
+<!-- </app-todo-item> -->
+
+<!-- <div *ngIf="SearchResults">
     <div class="HeaderTop ">Search Results</div>
     <div class="SearchResults">
         <div routerLink='/MovieDetailsComponent'>
@@ -24,4 +45,4 @@
     <div omData="omData" routerLink='/MovieDetailsComponent' (click)="navigateToDetailsPage()" class="moviesTitle">
         {{episode.Title}}
     </div>
-</div>
+</div> -->

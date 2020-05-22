@@ -13,28 +13,34 @@ export class TodosComponent implements OnInit {
   episodes: any[];
   MovieInput: string;
   SearchResults;
+  results;
+  selectedResult;
   constructor(private omdbService: CallomdbService, private router: Router) { }
 
   ngOnInit(): void {
     this.omdbService.getDataFromApi().subscribe(data => {
       this.omData = data;
-      // console.log(data, "Data ");
-      //  let episodes :any[] = this.omData.Episodes
       this.episodes = data.Episodes;
     });
 
   }
   ngDoCheck() {
-    // console.log("omData in DoCheck ", this.omData);
   }
   navigateToDetailsPage() {
     // this.router.navigate(['/MovieDetailsComponent'])
   }
+  ProvideSelectedResult(result: any) {
+    this.selectedResult = result;
+    console.log("return selected results", this.selectedResult);
+    return this.selectedResult;
+  }
   SearchClicked() {
     this.omdbService.movieInput = this.MovieInput;
     this.omdbService.searchMovieByName().subscribe(data => {
-      this.SearchResults=data;
-      console.log("Result of Search Movie by name 2", this.SearchResults);
+      this.SearchResults = data;
+      this.results = data.Search;
+      // console.log("Result of Search Movie by name 2", this.SearchResults);
+      console.log("Results :", this.results);
     })
   }
 

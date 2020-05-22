@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { TodosComponent } from './components/todos/todos.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 
+import {TableModule} from 'primeng/table';
+import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
+import {MenuItem} from 'primeng/api';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +20,10 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    TableModule,
+    AccordionModule,
+    
   ],
   providers: [TodosComponent],
   bootstrap: [AppComponent]

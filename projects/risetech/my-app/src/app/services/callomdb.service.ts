@@ -20,7 +20,7 @@ export class CallomdbService {
   }
   searchMovieByName(): Observable<any> {
     console.log("movieInput in service", this.movieInput)
-    return this.http.get(`http://www.omdbapi.com/?t=${this.movieInput}&apiKey=${this.apiKey}`)
+    return this.http.get(`http://www.omdbapi.com/?s=${this.movieInput}&apiKey=${this.apiKey}`)
   }
 
 }

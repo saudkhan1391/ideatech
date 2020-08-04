@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProdFormService } from 'src/app/services/prod-form-service/prod-form.service';
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-item-info',
   templateUrl: './item-info.component.html',
@@ -10,19 +11,19 @@ export class ItemInfoComponent implements OnInit {
 
   detailsForm: FormGroup;
   categories;
-  constructor(private fb: FormBuilder, private prodFromService: ProdFormService) {
+  constructor(private fb: FormBuilder, private prodFromService: ProdFormService, private messageService: MessageService) {
     this.detailsForm = fb.group({
       barcodeNo: [""],
-      productId: [""],
-      name: [""],
-      categoryId: [""],
-      type: [""],
-      isbn: [""],
-      tags: [""],
-      manufacturer: [""],
-      description: [""],
-      weight: [""],
-      measurement: [""],
+      productId: ["", [Validators.required]],
+      name: ["", [Validators.required]],
+      categoryId: ["", [Validators.required]],
+      type: ["", [Validators.required]],
+      isbn: ["", [Validators.required]],
+      tags: ["", [Validators.required]],
+      manufacturer: ["", [Validators.required]],
+      description: ["", [Validators.required]],
+      weight: ["", [Validators.required]],
+      measurement: ["", [Validators.required]],
     })
   }
 
@@ -32,11 +33,29 @@ export class ItemInfoComponent implements OnInit {
       this.categories = res.data
     })
   }
+  notifySuccess(summary: string, detail: string = "") {
+    this.messageService.add({
+      severity: "success",
+      summary: summary,
+      detail: detail
+    });
+  }
+  notifyError(summary: string, detail: string = "") {
+    this.messageService.add({
+      severity: "error",
+      summary: summary,
+      detail: detail
+    });
+  }
   submitDetails() {
     console.log("mValue", this.detailsForm.value);
+    if (this.detailsForm.invalid) {
+      this.notifyError("Error", "All Fields must be validated")
+    }
     let payload = this.detailsForm.value;
     this.prodFromService.postProduct(payload).subscribe(res => {
-      console.log("res sumbit details :", res)
+      console.log("res sumbit details :", res);
+      this.notifySuccess("Succeess", "Product Details added")
     })
   }
 

@@ -12,6 +12,9 @@ import { ProdFormComponent } from './components/product/product-form2/prod-form/
 import { ProdFormService } from './services/prod-form-service/prod-form.service';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MessageService, ConfirmationService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,15 +25,17 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     ItemInfoComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     TabsModule.forRoot(),
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ToastModule
 
   ],
-  providers: [ProdFormService],
+  providers: [ProdFormService, MessageService, ConfirmationService],
   bootstrap: [AppComponent,]
 })
 export class AppModule { }

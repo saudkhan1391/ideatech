@@ -13,6 +13,12 @@ export class ProdFormService {
   public postProduct(payload) {
     return this.http.post(`${this.webApiUrl}/products`, payload)
   }
+  public postProductVariations(paylaod): Observable<any> {
+    return this.http.post(`${this.webApiUrl}/variations`,paylaod)
+  }
+  public getAllProducts(): Observable<any> {
+    return this.http.get(`${this.webApiUrl}/products`)
+  }
   public getAllCategories(): Observable<any> {
     return this.http.get(`${this.webApiUrl}/categories`)
   }
